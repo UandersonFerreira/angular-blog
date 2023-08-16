@@ -1,0 +1,13 @@
+/*
+Arquivo que iria conter o css para tornar
+o layout responsivo, quando necessário,
+dessa forma desacoplamos ainda mais a nossa
+estrutura de estilização de um component existente.
+*/
+
+@media screen and (max-width:700px){
+  .container__menu-title > h1{
+    font-size: 50px;
+  }
+}
+

@@ -18,9 +18,16 @@
 
 .small-card__title{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+}
 
+.small-card__title-time{
+  margin-bottom: 24px;
+}
+.small-card__title-time > span{
+  color: gray;
 }
 .container__small-card__separator{
   margin-top: 10px;

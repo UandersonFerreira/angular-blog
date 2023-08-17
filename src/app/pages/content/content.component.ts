@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { dataFake } from 'src/app/data/dataFake';
 
 @Component({
   selector: 'app-content',
@@ -7,13 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ContentComponent implements OnInit{
-  photoCover:string = "https://uploads.jovemnerd.com.br/wp-content/uploads/2022/07/tony_stark_vingadores_ultimato_cena__70kqp20-1210x544.jpg";
-  contentTitle: string = "MINHA NOTICIA";
-  contentDescription:string = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quibusdam, recusandae eaque facere molestias assumenda molestiae laborum inventore. Impedit quam, unde modi possimus porro tempore non atque perferendis nulla enim.";
+  photoCover:string = "";
+  contentTitle: string = "";
+  contentDescription:string = "";
 
-  constructor(){}
+  private id: string | null = "0";
+  constructor(
+    private route:ActivatedRoute
+  ){}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.route.paramMap.subscribe( value =>
+       this.id = (value.get("id"))
+      )
+
+      this.setValuesToComponent(this.id);
   }
+
+  setValuesToComponent(id:string|null){
+   const result = dataFake
+   .filter( article => article.id == id)[0];
+
+   this.contentTitle = result.title;
+   this.contentDescription = result.description;
+   this.photoCover = result.photoCover;
+
+  }//method
 
 }

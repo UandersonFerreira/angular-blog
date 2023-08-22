@@ -1,4 +1,4 @@
-.container__menu-title{
+/* .container__menu-title{
   color: white;
 
 }
@@ -18,4 +18,67 @@
 .container__menu-title > hr{
   margin-top: 20px;
   margin-bottom: 5px;
+} */
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Impede que o texto quebre para a próxima linha */
+
+  /* background: transparent; */
+  --stroke-color: #ffffff7c;
+  --ani-color: rgba(95, 3, 244, 0);
+
+  letter-spacing: 3px;
+}
+
+.carousel>hr {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  color: #ffffffa6;
+}
+
+.text {
+  display: inline-block;
+  /* Os elementos <p> ficarão em uma linha horizontal */
+  animation: carousel 12s linear infinite;
+  /* Define a animação do carrossel */
+
+}
+
+.text h1 {
+  display: flex;
+  justify-content: center;
+
+  margin: 20px 0 15px 15px;
+  font-size: 110px;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+
+
+  cursor: pointer;
+  color: transparent;
+
+  background:
+    linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  display: inline-block;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+
+
+@keyframes carousel {
+  0% {
+    transform: translateX(100%);
+    /* Move o texto para a direita para começar */
+  }
+
+  100% {
+    transform: translateX(-100%);
+    /* Move o texto para a esquerda no final */
+  }
 }
